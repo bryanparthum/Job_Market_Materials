@@ -38,7 +38,7 @@ Many people will use a single template for *all* letters. They would then loop t
 
 This is a spreadsheet that I created to help me keep track of job postings, closing dates, letters, etc. It is pretty self-explanatory, but here are a few tips. There are four worksheets (Jobs, Postdocs, Responses, and Data). I chose to keep full-time positions separate from postdocs, just for bookkeeping purposes. I also kept a worksheets for the responses in case there was additional information that was requested, or about the date and time of the interview. This way I wasn't frantically searching through emails to find something important, or even worse, missing an interview all together. 
 
-The `data (do no change)` worksheet is one that the other worksheets reference in their date column. This is how I color-code items that are approaching their deadline. The parameters can be changed. For example, if you want the entry to change to yellow when the due date is 7 days away, instead of the 14 as I have it set now, you would simply change cell A2 to `=TODAY()+7` instead of `=TODAY()+14`.  
+The `data (do not change)` worksheet is one that the other worksheets reference in their date column. This is how I color-code items that are approaching their deadline. The parameters can be changed. For example, if you want the entry to change to yellow when the due date is 7 days away, instead of the 14 as I have it set now, you would simply change cell A2 to `=TODAY()+7` instead of `=TODAY()+14`.  
 
 ## License
 
