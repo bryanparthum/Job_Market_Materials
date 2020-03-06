@@ -4,7 +4,9 @@
 
 ## Overview
 
-This repo contains some templates for creating your vitae (academic and professional), research, teaching, and diversity statements, and your cover letter. I also included a spreadsheet (`Jobs.xlsx`) that I used to keep track of job postings, if my letter writers has submitted the letter, and other things. Plan ahead, stay calm, you are doing everything right. Congratulations for making this far in your career and I am excited for the things you are going to go on to do. Believe in yourself!
+This repo contains some templates for creating your vitae (academic and professional), research, teaching, and diversity statements, and your cover letter. I also included a spreadsheet (`Jobs.xlsx`) that I used to keep track of job postings, if my letter writers had submitted their letter, links to the post, and other things. 
+
+Plan ahead, stay calm, you are doing everything right. Congratulations for making this far in your career and I am excited for the things you are going to go on to do. Believe in yourself!
 
 ## Workflow
 
