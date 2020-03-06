@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[12pt]{article}
+
+\usepackage[top=1truein,bottom=1truein,left=1truein,right=1truein]{geometry}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1.04} %% CAN ADJUST THIS TO MAKE IT EXACTLY 2 PAGES
+
+\usepackage{fancyhdr,lastpage}
+
+\usepackage[page]{totalcount}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage~of \totalpages}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+
+\newcommand{\makeheading}[2][]{\noindent
+         \begin{minipage}[t]{\textwidth}%
+             {\large \bfseries #2 \hfill #1}\\
+             [-0.15\baselineskip]\rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhfoffset[L]{3cm} % left extra length
+%\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\emph{\large Teaching Statement}}
+\lhead{\large \bfseries \href{www.bryanparthum.com}{Bryan Parthum}}
+\rfoot{\hfill \today }
+\cfoot{Page \arabic{page} of \protect\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{1pt} % header line width
+\setlength{\headheight}{18pt} % header line width
+\setlength{\headsep}{0.2in}
+
+%% SHOW ONLY MONTH
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or %
+April\or May \or June\or July\or August\or September\or October\or November\or %
+December\fi, \number \year} 
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\vspace{1em}
+\RaggedRight
+
+\noindent I have always admired and learned most from teachers who integrate theory into relatable, real-world examples through active learning and application. However, it is also understood that not all students learn best in an active learning environment (\href{https://www.pnas.org/content/111/23/8410}{Freeman et al., 2014}). With this in mind, I strategically weave hands-on applications into my lessons to accommodate diverse learning styles while also maximizing the return on the activity for all students. The result is (typically) one that provides rigorous coursework grounded in a big-picture story about why the material matters. Understanding where the material connects with the world outside the classroom allows students to ask targeted questions while finding comfort in knowing why they are asking them (\href{https://www.wiley.com/en-us/Teaching+and+Learning+STEM\%3A+A+Practical+Guide-p-9781118925812}{Felder and Brent, 2016}).
+
+One example of how I help students learn content through using hand-on tools comes from the early lectures of consumer theory (\href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Intermediate_Micro.pdf}{ACE398: Intermediate Microeconomics}). After I initially introduce the axioms of consumer preferences and choice, I have students complete an online choice experiment. The students receive a randomly allocated annual income as a budget constraint to consider when making their choices throughout the exercise. They face a series of choice questions related to local environmental amenities and proposed improvements that come at a dollar cost to them. Hidden in the choice cards are several alternatives that allow us to test transitivity of the students' preferences. In class, we model and summarize their responses in a conventional random utility framework. The exercise allows students to experience an elicitation mechanism, consider a budget constraint, visualize their own preferences (marginal utilities and willingness to pay), and the distribution of preferences for their classmates. This exercise makes the concepts of utility and consumer choice relatable, tangible, and unique to the students and their classmates. I refer to this lesson over the course of the semester to support concepts such as consumer surplus, social welfare, and behavioral economics. I am currently refining the materials (freely available to other instructors) and developing a write-up of this application to publish in an outlet such as the Journal of Economic Education.
+
+Another classroom exercise that I use takes place a few lectures into producer theory (\href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Intermediate_Micro.pdf}{ACE398: Intermediate Microeconomics}). We model a firm's production process using capital (five-gallon buckets) and labor (students) to produce tennis balls (\href{https://www.economicsnetwork.ac.uk/themes/games/tennis\%20balls}{Hedges, 2004}). In each subsequent round, one additional unit of labor (one more student) joins the production process to transfer tennis balls from one end of the room to the other. We record and plot the labor input, costs, and production levels for each round. Within a few rounds, students begin to see the production function, cost curves, and the diminishing marginal returns to labor. An additional dimension of technology can be added by restricting how tennis balls are transferred (one hand or two, running, etc.) across the room. This game has been well-received by the students and many have told me how effective the game was in helping them to understand firm behavior, the producer's problem, and duality in production.
+
+In some courses, such as my applied microcomputing class (\href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Microcomputing.pdf}{ACE161: Microcomputer Applications}), I allow students to explore more freely to find alternative ways to problem-solve. With programming and computer applications, memorizing how to perform a task can be less efficient than mastering how to communicate and find the answers they need. For example, I pair students together and assign a task (silently) to one of the students. They then describe to their partner what it is they are hoping to do (link a database with another using Access, add a contact for a mail-merge in Word, etc.). Their partner then attempts to complete this task in real-time using the computer in front of them. They have any resource they wish to use available to them (the internet, Google, asking a colleague, notes, etc.). In computer and programming classes, it is nearly impossible to memorize how to perform every possible combination of tasks that I could ask of them. In these settings, students can progress through the first three tiers of Bloom's taxonomy very quickly where defining, classifying, and interpreting can take place in a matter of seconds. So learning how to quickly communicate, process, and search for solutions to their classmate's request is a much more effective way to learn how to navigate machine-sourced problems than attempting to memorize every software program and application.
+
+While I incorporate many activities and applications into my lessons to help bring context and tangibility to the material, not all students learn well this way. In class sessions where we are strictly covering material or theory, I incorporate additional assessment and development strategies such as \textit{think-pair-share} that allow students to process a question, make an attempt to answer the question with a partner, and present their answer for feedback. In some cases, I omit the \textit{pair} portion of this exercise to cater to students who do their best work independently. When seeking responses from students, asking an open-ended question to the entire class inevitably results in the same outgoing students raising their hands to answer. To encourage responses from the students who are typically quiet during open-ended prompts, I will call on them directly to ignite discussion and feedback. At UIUC, we have a very diverse population of students, many of whom are international students with English as a second (or third) language. For these students I am careful to refrain from using colloquialisms and idioms during lectures. However, if the shoe fits, I occasionally weave these in, explain their meaning, and their connection to the material. My international students, and friends, have told me that it helps provide additional context about the material through creative use of language and speech.
+
+In addition to teaching students, I have taught courses in pedagogy that help prepare new graduate students for teaching assistantships and lecturer positions. Teaching new TA's, and helping them to find their groove faster, is particularly exciting knowing that their students will directly benefit from the skills learned in my course. My passion for teaching and mentoring is also reflected in my course evaluation scores. I have been awarded a place on UIUC's list of \textit{\href{https://citl.illinois.edu/citl-101/measurement-evaluation/teaching-evaluation/teaching-evaluations-(ices)/teachers-ranked-as-excellent}{Teachers Ranked as Excellent}} every semester I have taught. This includes two semesters ranked in the top 5\% of all faculty and instructors, and one semester with a perfect score (5 out of 5). My teaching style has been shown to be versatile and has prepared me to teach a variety of classes. Beyond the conventional list of core economics courses, I am equipped to provide field courses in environmental and resource economics, behavioral economics, microeconometrics, and structural demand estimation. I can also teach courses related to programming and computer science. These latter courses are helpful for giving undergraduates a head start for more advanced coursework, and provides them with useful skills that are highly desired by employers. At the graduate level, these programming courses are integral for our discipline to advance methods and theory, and keeping graduate students on the frontier of research methods.
+
+\end{document}
+
+

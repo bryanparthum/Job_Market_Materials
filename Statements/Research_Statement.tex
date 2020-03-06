@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[12pt]{article}
+
+\usepackage[top=1truein,bottom=1truein,left=1truein,right=1truein]{geometry}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{0.9784} %% CAN ADJUST THIS TO MAKE IT EXACTLY 2 PAGES
+
+\usepackage{fancyhdr,lastpage}
+
+\usepackage[page]{totalcount}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage~of \totalpages}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+
+\newcommand{\makeheading}[2][]{\noindent
+         \begin{minipage}[t]{\textwidth}%
+             {\large \bfseries #2 \hfill #1}\\
+             [-0.15\baselineskip]\rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhfoffset[L]{3cm} % left extra length
+%\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\emph{\large Research Statement}}
+\lhead{\large \bfseries \href{www.bryanparthum.com}{Bryan Parthum}}
+\rfoot{\hfill \today }
+\cfoot{Page \arabic{page} of \protect\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{1pt} % header line width
+\setlength{\headheight}{18pt} % header line width
+\setlength{\headsep}{0.2in}
+
+%% SHOW ONLY MONTH
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or %
+April\or May \or June\or July\or August\or September\or October\or November\or %
+December\fi, \number \year} 
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+%----------------------------------------------------------------------------------------
+
+%\makeheading[\emph{Research Statement}]{\href{www.bryanparthum.com}{Bryan Parthum}}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+%\vspace{1em}
+\RaggedRight
+
+\noindent My research is seated in environmental and resource economics, including nonmarket valuation, hedonic price analysis, and the benefit-cost analysis of government programs. A driving force behind my research is a desire to increase our understanding of the linkages between humans and the environment, and to examine how policies that affect these linkages distribute benefits (and costs) to subgroups of people. Environmental justice research often focuses on market externalities that disproportionately affect marginalized populations defined by race and income. My research agenda extends this field into additional dimensions such as cultural and intergenerational divides. I also contribute to methodological advances by incorporating computer science and big data analytic approaches to keep our discipline on the frontier of methods while preserving an emphasis on causal inference. I strongly value transparency and efficiency in research. By exploiting the synergies between computer science, web hosting, and economics, my research is made accessible and replicable for economists and researchers in other disciplines.   
+
+Recent work I have led with co-author Amy Ando analyzes preferences across a cultural rural-urban divide in the American Midwest (R \& R in \textit{Land Economics}, \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Ando_2019.pdf}{draft available here}). There exists a narrative that urban elites often foist environmental protections and policies upon rural populations. We explore this narrative in the context of surface water quality in local rivers and streams. We use a choice experiment in a representative watershed to elicit preferences for environmental quality for local amenities (reductions in local algal blooms and improvements in biodiversity metrics) and nonlocal amenities such as reducing hypoxia in the Gulf of Mexico. We find little variation in preferences for environmental quality across this cultural divide, and in some cases we find that rural residents more strongly value the proposed improvements. This paper advances stated preference research methods by building the infrastructure (publicly available to other researchers) necessary to provide survey respondents with individual maps for each alternative on a choice card. Incorporating individualized maps reduces measurement error in preference elicitation by providing the respondent with spatially accurate information about the choice options presented to them. Individualized maps also allow the use of location-specific improvements to experimentally vary the distance-to-improvement metric that is often endogenous in many quasi-experimental and even fully experimental studies. We are currently building on this work to explore the stability of our findings across the entire Mississippi River Basin and test for loss aversion in preferences. In addition to two papers mentioned, I am preparing a methods paper to publish our advances and make them available for use in a wide variety of applications.
+
+In other work I have led, with co-author Peter Christensen, we estimate the causal effect of changes in snowpack on winter recreation in 219 resort markets across the United States. The first of two papers coming from this project (job market paper, \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Christensen_2019a.pdf}{draft available here}) makes three primary contributions to the economics of climate change: 1) we develop a new method for estimating elasticities for climate amenities by matching the spatial and temporal variation in the level of the amenity with the frequency of related market transactions; 2) we derive state-specific demand elasticities for all major resort markets across the United States and show that substantial heterogeneity exists across states; and 3) we simulate the contemporaneous value of snowpack in each state, along with economic damages under two future climate scenarios (RCP4.5 and RCP8.5). We predict that resort markets could face reductions in local snow tourism of 40\% to 80\% from current levels, almost twice as large as previous estimates suggest. This translates to a lower-bound on per season (annual) losses between \$1.55 billion (RCP4.5) and \$2.63 billion (RCP8.5) by the end of the century (2080). This paper contributes to an important discussion about the communities who stand to lose the most in the face of climate change.
+
+The second paper in this series builds on the first by diving deeper into the story to directly estimate utility functions of winter recreationists. We model utility in McFadden's (1974) Random Utility Maximization framework to estimate the marginal utility of (and marginal willingness to pay for) climate amenities such as snowpack, temperature, and precipitation. In order to address a dimensionality problem in the computational estimation of the likelihood function, caused by the large choice set that the consumer faces when making a decision of where and when to make a trip, we randomly sample from the available set of outside options to relax restrictions surrounding conventional (conditional) logistic estimation (IIA). Using this approach, we recover a distribution of preference parameters for climate amenities that allow for more realistic substitution patterns when solving the consumer's problem. However, simply allowing for substitution only provides part of the story. We extend the analysis by incorporating the demand estimation framework of Berry, Levinsohn, and Pakes (1995) to estimate own and cross-snowpack elasticities. We recover a substitution matrix which provides us with the ability to refine estimates of damages under future climate scenarios by predicting substitution patterns of snow tourists. We find that failing to account for spatial and temporal substitution misestimates the spatial distribution of welfare, but aggregate welfare is not significantly different under the two assumptions. We also find that welfare damages are substantially larger than simple estimates of lost revenues that we derive in the first paper. We estimate that by end of the century (2080) total welfare losses across the U.S. are between \$9.35 billion and \$14.2 billion per ski season due to reductions in mountain snowpack. Site substitution is an important phenomenon, but will not reduce the overall threat that climate change poses to this ecosystem service. 
+
+These examples provide only a small glimpse into my ongoing research. Other projects include identifying avoidance behavior from wildfire smoke and red tide, regional benefits from improvements in surface water quality, and estimating the relationship between willingness to pay and willingness to volunteer. I also have experience in seeking outside funding from the Sloan Foundation (PI's Erica Myers and Peter Christensen), and the Gulf of Mexico Coastal Ocean Observing System (PI's Klaus Moeltner and Roger von Haefen). In the first grant, I established the framework necessary for efficient determination of eligibility and distribution of over \$150k in awards to participants of a randomized control trial across the state of Illinois. Outside of academia, I have extensive experience in managing large budgets (\$100k-\$1mil) and supervising the allocation of funds to various contractors and employees during my tenure as a carpenter and general contractor. Throughout my research I have collaborated with economists, physical scientists, and other social scientist, and I look forward to building additional cross-disciplinary collaborations in our often overlapping research. Over the next five years I will continue empirical research in environmental and resource economics with an emphasis on identifying and estimating the distributional impacts of public policy on different populations. My work will continue to generate discoveries that inform policy, advance our discipline, and advance methods, while building on a strong foundation of underlying economic theory.
+
+\end{document}

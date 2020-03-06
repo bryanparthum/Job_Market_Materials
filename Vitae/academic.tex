@@ -1,0 +1,744 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+%\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\newlength{\myMheight}
+\settoheight{\myMheight}{M}
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+%% Reference the last page in the page number
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+
+%% SHOW ONLY MONTH
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or %
+April\or May \or June\or July\or August\or September\or October\or November\or %
+December\fi, \number \year} 
+
+%%%%%%%%%%%%%%%%%%%%%%%% COLOR OF HYPERLINKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[svgnames,dvipsnames]{xcolor}
+%% DIGITAL COPY
+%\hypersetup{colorlinks,breaklinks,linkcolor=SteelBlue,urlcolor=SteelBlue,anchorcolor=SteelBlue,citecolor=SteelBlue}
+%% PRINT COPY
+\hypersetup{colorlinks,breaklinks,linkcolor=black,urlcolor=black,anchorcolor=black,citecolor=black}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+%\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhfoffset[L]{3cm} % left extra length
+%\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\emph{\large Curriculum Vitae}}
+\lhead{\large \bfseries \href{www.bryanparthum.com}{Bryan Parthum}}
+\rfoot{\today \hspace*{1.25in} }
+\cfoot{\hspace*{-1.35in} Page \arabic{page} of \protect\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{1pt} % header line width
+\renewcommand{\headheight}{0.25in} % header line width
+\setlength{\headsep}{0.2in}
+
+
+%% ENVIRONMENT FOR ABSTRACTS 
+\newenvironment{abstracts}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%\makeheading[\emph{Curriculum %Vitae}]{\href{www.bryanparthum.com}{Bryan Parthum}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contact Information}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.6in}%
+
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+             1.555.555.5555                 &       416 Mumford Hall  \\
+            \email{parthum2@illinois.edu}   & 1301 W Gregory Dr.  \\
+            \href{www.bryanparthum.com}{bryanparthum.com} & Urbana, IL  61801 \\
+ [1em]
+ Citizenship: United States of America      & \\
+ Entries contain hyperlinks                 & \\
+\end{tabular}
+
+\halfblankline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Ph.D., \href{http://ace.illinois.edu}{Agricultural and Applied Economics}} \hfill \emph{Expected:} May 2020
+        \begin{innerlist}
+        \item[] \href{https://illinois.edu/}{University of Illinois} at Urbana-Champaign, IL
+        \item[] Department: Agricultural and Consumer Economics
+        \item[] Thesis: \emph{Estimating Demand for Environmental Goods and Services: Now and Later}
+        \item[] Advisor:
+              \href{https://publish.illinois.edu/amyando/}
+                   {Prof. Amy W. Ando}
+        \item[] Committee:
+        \href{https://aaec.vt.edu/people/faculty/moeltner-klaus.html}
+                    {Klaus Moeltner},
+        \href{https://www.bengramig.com}
+                    {Ben Gramig}, and
+        \href{https://www.peterchristensen.net}
+                    {Peter Christensen}
+        \end{innerlist}
+        
+\halfblankline
+
+\textbf{M.S., \href{http://www.mspe.illinois.edu/}{Policy Economics}} \hfill Dec 2015
+        \begin{innerlist}
+        \item[] \href{https://illinois.edu/}{University of Illinois} at Urbana-Champaign, IL
+        \item[] Department: Economics
+        \item[] Thesis: \emph{Divesting from the Golden State: A Case Study of Local Foods
+        	Systems Using Propensity Score Matching Within Panel Data}
+        \item[] Advisor:
+              \href{http://www.real.illinois.edu/faculty/hewings.html}
+                   {Prof. Geoffrey J.D. Hewings}
+        \end{innerlist}
+
+\halfblankline
+
+\textbf{B.S., \href{https://economics.colostate.edu/}{Economics}} \hfill May 2013
+   \begin{innerlist}
+                \item[] \href{https://www.colostate.edu/}{Colorado State University}, Fort Collins, CO
+                \item[] Department: Economics
+             	\item[] Thesis: \emph{Co-integration of Industry to Estimate Business Cycles,
+             		Developing \\ Employment and Revenue Projections for the State of Colorado}
+             	\item[] Advisors:
+             	\href{https://economics.colostate.edu/author/sweiler/}
+             	{Prof. Stephan Weiler} and \href{https://economics.colostate.edu/author/hcutler/}{Prof. Harvey Cutler}
+    \end{innerlist}
+
+\blankline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research \\ Fields}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{0.7\linewidth}
+\textbf{Primary}
+\begin{innerlist}
+	\item[] Environmental and Resource Economics
+	\item[] Applied Econometrics
+\end{innerlist}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\textbf{Secondary}
+\begin{innerlist}
+	\item[] Empirical IO
+	\item[] Big Data
+\end{innerlist}
+\end{minipage}
+
+\blankline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Refereed Journal Publications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-.29cm} %% DEPENDING ON FONT SIZE, THIS WILL ALIGN THE SECTION WITH THE FIRST ITEM
+
+\begin{bibsection}
+
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Ando_etal_2019.pdf}
+    {\textit{Willingness-to-Volunteer and Stability of Preferences between Cities: Estimating the Benefits of Stormwater Management}} 
+    with Amy W. Ando, Catalina Cadavid, and Noelwah R. Netusil. 2019. Forthcoming in the Journal of Environmental Economics and Management. 
+    
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Pindilli_Hogan_2017.pdf}
+    {\textit{Benefits of the Fire Mitigation Ecosystem Service in The Great Dismal Swamp National Wildlife Refuge, Virginia, USA}}
+    with Emily Pindilli and Dianna Hogan. 2017.
+    Journal of Environmental Management 203: 375-82. doi:\doilink{10.1016/j.jenvman.2017.08.018}.
+    
+\end{bibsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Submitted \\ Papers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-.29cm} %% DEPENDING ON FONT SIZE, THIS WILL ALIGN THE SECTION WITH THE FIRST ITEM
+
+\begin{bibsection}
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Ando_2019.pdf}
+    {\textit{Overlooked Benefits of Nutrient Reductions in the Mississippi River Basin}} with Amy W. Ando. (R \& R in Land Economics, 2019). 
+\end{bibsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Working \\ Papers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-.29cm} %% DEPENDING ON FONT SIZE, THIS WILL ALIGN THE SECTION WITH THE FIRST ITEM
+
+\begin{bibsection}
+\item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Christensen_2019a.pdf}
+        {\textit{The Recreation Response to Changes in Mountain Snowpack}} \\ with Peter Christensen.
+\end{bibsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Papers in Preparation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-.29cm} %% DEPENDING ON FONT SIZE, THIS WILL ALIGN THE SECTION WITH THE FIRST ITEM
+
+\begin{bibsection}
+
+	\item {\textit{A Recreational Demand Model for Mountain Snowpack}} \\
+	        with Peter Christensen.
+
+	\item \textit{Code Red Tide and Economic Damages along the Gulf Coast} \\ 
+	        with Klaus Moeltner and Roger von Haefen.
+	
+	\item \textit{Internalizing the Externality: An Integrated Assessment Model of Reductions in Nutrient Transmission to Gulf of Mexico} with Amy W. Ando.
+	
+	\item \textit{Buying the Farm and the Distribution of Local and Cultural Benefits from Farmland Conservation} with Amy W. Ando.
+	
+	\item \textit{Using Discrete Choice Experiments as a Tool for Teaching Consumer Theory: A Case Study in an Intermediate Microeconomics Course}.
+	
+	\item \textit{You Are Here: Bringing New Life, and Methods, To Stated Preference Research}.
+	
+\end{bibsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research Assistantships}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{\href{https://peter-christensen-pe55.squarespace.com/about}{Big Data in Environmental Economics and Policy}}
+\begin{innerlist}
+\item[] May 2017 - May 2020 \\
+        Bridge economics with computer science to leverage advances in continuous data acquisition, high performance computing, and machine learning. \\
+        University of Illinois Urbana-Champaign, IL \\
+        Supervisor: Prof. Peter Christensen
+\end{innerlist}
+
+\halfblankline
+
+\textbf{\href{https://publish.illinois.edu/sangamonproject/}{Cultural Divide in WTP: Rural-Urban Preferences}}
+\begin{innerlist}
+\item[] Jan 2016 - May 2020 \\
+        An Integrated Assessment Framework for Willingness to Pay for Water Quality \\
+        University of Illinois Urbana-Champaign, IL \\
+        Supervisor: Prof. Amy W. Ando
+\end{innerlist}
+
+\halfblankline
+
+\textbf{Land Conservation on the Rural-Urban Fringe}
+\begin{innerlist}
+\item[] June 2019 - May 2020 \\
+        Estimating the Distributional Impacts of Land Conservation \\
+        University of Illinois Urbana-Champaign, IL \\
+        Supervisor: Prof. Amy W. Ando
+\end{innerlist}
+
+\halfblankline
+
+\textbf{Dissecting the Energy Efficiency Gap in Home Weatherization}
+\begin{innerlist}
+\item[] Jan 2016 - Dec 2018 \\
+        Randomized Control Trial, Quasi-experimental, and Machine Learning \\
+        University of Illinois Urbana-Champaign, IL \\
+        Supervisor: Prof. Erica Myers
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Teaching Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Lead Instructor} (sole teaching responsibility)
+\begin{innerlist}
+	\item[] \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Intermediate_Micro.pdf}
+	{ACE 398: Intermediate Microeconomics} \\
+	\hspace*{0.5cm} \textit{Lecture}: 65 students \hfill FA19 \\
+	\hspace*{0.5cm} University of Illinois at Urbana-Champaign, IL \\
+	\hspace*{0.5cm} Undergraduate Credit: 3 Hours. \\
+	\hspace*{0.5cm} Number of TA's: 1
+\end{innerlist}
+
+\smallskip
+
+\begin{innerlist}
+	\item[] \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Microcomputing.pdf}
+	{ACE 161: Microcomputer Applications} \\
+	\hspace*{0.5cm} \textit{Lecture}: 50 students \hfill SP18 \\
+	\hspace*{0.5cm} \textit{Online}: 100 students \hfill SU18, FA18 \\
+	\hspace*{0.5cm} University of Illinois at Urbana-Champaign, IL \\
+	\hspace*{0.5cm} Undergraduate Credit: 3 Hours. \\
+	\hspace*{0.5cm} Number of TA's: 1 \\ 
+	\hspace*{0.5cm} Teaching Evaluation Scores: 4.8/5 
+\end{innerlist}
+
+\smallskip
+
+\textbf{Teaching Assistant}
+\begin{innerlist}
+	\item[] \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Syllabus_Intermediate_Micro.pdf}
+	{ACE 398: Intermediate Microeconomics} \\
+	\hspace*{0.5cm} \textit{Lecture}: 40 students \hfill SP19 \\
+	\hspace*{0.5cm} University of Illinois at Urbana-Champaign, IL \\
+	\hspace*{0.5cm} Undergraduate Credit: 3 Hours. \\ 
+	\hspace*{0.5cm} Teaching Evaluation Scores: 5/5 
+\end{innerlist}
+
+\smallskip
+
+\textbf{Teaching Certificates and Awards}
+
+\begin{innerlist}
+	\item[] \href{https://citl.illinois.edu/citl-101/measurement-evaluation/teaching-evaluation/teaching-evaluations-(ices)/teachers-ranked-as-excellent}{List of Teachers Ranked as Excellent}	\hfill SP18, SU18, FA18, SP19
+\end{innerlist}
+
+\begin{innerlist}
+	\item[] \href{https://academics.aces.illinois.edu/faculty-staff/teaching-college}{ACES Teaching and Learning Academy Course} \hfill {FA17} \\
+	\hspace*{0.5cm} University of Illinois at Urbana-Champaign, IL \\
+	\hspace*{0.5cm} Eight-week collaborative faculty development program
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Awards}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\href{http://awards.aces.illinois.edu/award-logeman.cfm}{Louis V. Logeman Graduate Student Teaching Award} \\
+\hspace*{0.5cm} College of Ag., Consumer and Environmental Sciences | April 2020 \\
+Most Outstanding Second Year Research Paper \\
+\hspace*{0.5cm} Department of Agriculture and Consumer Economics | Nov 2018 \\
+Outstanding Ph.D. Student \\
+\hspace*{0.5cm} Department of Agriculture and Consumer Economics | May 2018 \\
+Gamma Sigma Delta \\
+\hspace*{0.5cm} Honor Society of Agriculture, Jan 2017
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Invited Presentations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\href{}{} %% LINK TO YOUR PRESENTATION
+\begin{innerlist}
+    \begin{innerlist}
+    \item Camp Resources | August 2019 \\
+    \hspace*{0.5cm} Asheville, NC (invited presentation of learning tutorial)
+    \end{innerlist}  
+\end{innerlist}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Selected Presentations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\href{}{} %% LINK TO YOUR PRESENTATION (PROJECT 1)
+\begin{innerlist}
+    \begin{innerlist}
+    \item The Social Cost of Water Pollution and IAM Workshop | Apr 2019 \\
+    \hspace*{0.5cm} Ithaca, NY (full presentation) 
+   \item Annual W4133: Multistate Research Project | Feb 2018 \\
+    \hspace*{0.5cm} Austin, TX (full presentation) 
+    \end{innerlist}  
+\end{innerlist}   
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Service and Leadership}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Referee}
+
+\smallskip
+
+\begin{innerlist}
+	\item[] Journal of Environmental Economics and Management (1), American Journal of Agricultural Economics (2), Regional Science and Urban Economics (1), Landscape and Urban Planning (2), Land Use Policy (1), Ecological Economics (2)
+\end{innerlist}
+
+\smallskip
+
+\textbf{Department and Campus}
+
+\begin{innerlist}
+\item[] \href{https://ssc.sustainability.illinois.edu/}{Student Sustainability Committee} | \textit{Vice Chair} \hfill 2018 - 2019
+    \begin{innerlist}
+    	\item[] Land and Water Subcommittee | \textit{Chair} \hfill 2017 - 2018
+    \end{innerlist}
+
+\item[] \href{https://isg.illinois.edu/view/7038}{UIUC Campus Senate} | \textit{Senator} \hfill 2016 - 2018
+	\begin{innerlist}
+		\item[] Senate Executive Committee \hfill 2017 - 2018 
+		\item[] Committee on Campus Operations \hfill 2016 - 2017 
+	\end{innerlist}
+	
+\item[] \href{https://publish.illinois.edu/pereuiuc1/}{Program in Environmental Economics} | \textit{Coordinator} \hfill 2017 - 2018 
+
+\item[] Graduate Student Organization of ACE | \textit{Vice President} \hfill 2016 - 2017
+
+\item[] \href{https://citl.illinois.edu/docs/default-source/ta-orientation/grad-academy-fa19-program-(002).pdf?sfvrsn=2}{Graduate Academy for College Teaching} | \textit{Instructor} \hfill 2019 - 2020
+	\begin{innerlist}
+	    \item[] Teaching Teachers how to Teach 
+	\end{innerlist}
+	
+\end{innerlist}
+
+\textbf{Community Outreach}
+
+\begin{innerlist}
+	\item[] ACES Family Academies | \textit{Short Course} \hfill July 2019
+	\begin{innerlist}
+	    \item[] Economics: The Fun and Seldom Seen Kind 
+	\end{innerlist}
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Economist}
+\begin{innerlist}
+	\item[] \href{https://www2.usgs.gov/sdc/}{Department of the Interior, U.S. Geological Survey} \hfill 2015 - 2020
+	\begin{innerlist}
+	\item[] Reston, VA 
+	\item[] Series: GS-0199-09
+	\item[] Supervisor: Emily Pindilli
+	\item[] Inform adaptive management decisions within the U.S. interior and abroad through interdisciplinary and inter-agency collaboration. Contribute to policy discussion and design. 
+    \end{innerlist}
+\end{innerlist}
+
+\smallskip
+
+\textbf{Project Coordinator}
+\begin{innerlist}
+	\item[] \href{https://www.ourtask.org/}{The Global 2100 Project | Our Task, Inc.} \hfill 2015 - 2017 
+	\begin{innerlist}
+	\item[] Washington, DC
+	\item[] Organize research and writing efforts across 25 researchers to develop a comprehensive analysis of global projections for climate, environment, population, agriculture, health, energy, education, conflict, and economic systems through the year 2100.
+\end{innerlist}
+\end{innerlist}
+
+\smallskip
+
+\textbf{Owner and Founder}
+\begin{innerlist}
+	\item[] \href{https://www.facebook.com/ParthumConstruction/}{Parthum Construction} \hfill 2005 - 2014
+	 \begin{innerlist}
+	     \item[] Laporte, CO
+	     \item[] Design and build custom homes and high-end residential remodels, manage large budgets (\$50k-\$1mil), supervise up to 6 employees and contractors. 
+    \end{innerlist}
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\href{https://publish.illinois.edu/amyando/}
+{Amy W. Ando, Ph.D.}
+\begin{innerlist}
+    \item[] Professor, Department of Agricultural and Consumer Economics \\
+            University of Illinois at Urbana-Champaign, IL \\
+            amyando@illinois.edu
+\end{innerlist}
+\halfblankline
+
+\href{https://aaec.vt.edu/people/faculty/moeltner-klaus.html}
+{Klaus Moeltner, Ph.D.}
+\begin{innerlist}
+	\item[] Professor, Department of Agricultural and Applied Economics \\
+            Virginia Tech, VA \\
+	        moeltner@vt.edu
+\end{innerlist}
+\halfblankline
+
+\href{https://www.peterchristensen.net}
+{Peter Christensen, Ph.D.}
+\begin{innerlist}
+	\item[] Assistant Professor \\
+	        Department of Agricultural and Consumer Economics \\
+	        University of Illinois at Urbana-Champaign, IL \\
+	        pchrist@illinois.edu
+\end{innerlist}
+\halfblankline
+
+\href{https://ace.illinois.edu/directory/seanfox}
+{John A. (Sean) Fox, Ph.D.}
+\begin{innerlist}
+	\item[] Professor and Department Head \\
+	        Department of Agricultural and Consumer Economics \\
+	        University of Illinois at Urbana-Champaign, IL \\
+	        seanfox@illinois.edu
+\end{innerlist}
+\halfblankline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Programming}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{innerlist}
+    \item Stata, R, Matlab, Python, ArcGIS, ArcPy
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Languages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{innerlist}
+	\item English (native), American Sign Language (fluent)
+\end{innerlist}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstracts}{-1.5in}{0in}
+
+\begin{center}
+    \textbf{Dissertation Abstracts}
+\end{center}
+
+{\small
+
+\begin{itemize}
+    
+    \vfill
+        
+    \item[] \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Christensen_2019a.pdf}
+    {\textbf{The Recreation Response to Changes in Mountain Snowpack}} \\
+    with Peter Christensen \\
+    \textit{Dissertation Chapter I}
+    \item[] Many mountain towns rely on climate amenities such as wintertime precipitation to generate local economic activity. However, climate models predict large reductions in annual snowfall that could greatly reduce the recreational value of these markets. Harnessing a unique panel of daily transactions from the short-term property rental market, we combine daily weather, daily resort snowpack, and daily resort snowfall to estimate the causal effect of changes in resort snowpack on visitation in 219 resort markets across the United States. We make three primary contributions to the study of climate change: 1) we develop a new method to estimate elasticities for climate amenities by matching the spatial and temporal variation in the level of the amenity with the frequency of related market transactions; 2) we derive state-specific snowpack elasticities for all major markets across the United States and find significant heterogeneity in the behavioral response across states; and 3) we estimate year-to-year variation in the recreation revenue from snowpack under current and future climate scenarios. We predict that resort markets could face reductions in local snow-related revenue of -40\% to -80\%, almost twice as large as previous estimates suggest. This translates to a lower-bound on the annual willingness to pay to avoid reductions in snowpack between \$1.55 billion (RCP4.5) and \$2.63 billion (RCP8.5) by the end of the century.
+    
+    \vfill
+    
+    \item[] \textbf{A Recreational Demand Model for Snowpack} \\
+    with Peter Christensen \\
+    \textit{Dissertation Chapter II}
+    \item[] We estimate utility functions for winter recreationists in 219 resort markets across the United States to estimate the marginal willingness to pay for climate amenities such as snowpack, temperature, and precipitation. In order to address a dimensionality problem in the computational estimation of the likelihood function, caused by the large choice set that the consumer faces when making a decision of where and when to make a trip, we randomly sample from the available set of outside options to relax restrictions surrounding conventional (conditional) logistic estimation (IIA). Using this approach, we recover a distribution of preference parameters for climate amenities that allow for more realistic substitution patterns when solving the consumer's problem. However, simply allowing for substitution only provides part of the story. We extend the analysis by incorporating the demand estimation framework of Berry, Levinsohn, and Pakes (1995) to estimate own and cross-snowpack elasticities. We recover a substitution matrix which provides us with the ability to refine estimates of damages under future climate scenarios by predicting substitution patterns of snow tourists. We find that failing to account for spatial and temporal substitution misestimates the spatial distribution of welfare loss, but aggregate welfare is not significantly different under the two assumptions. We also find that welfare damages are substantially larger than simple estimates of lost revenues that we derive in the first paper. We estimate that by end of the century (2100) total welfare losses across the U.S. are between \$9.35 billion and \$14.2 billion per snow season due to reductions in mountain snowpack. Site substitution is an important phenomenon, but will not reduce the overall threat that climate change poses to this ecosystem service.
+    
+\vfill
+    
+    \item[] \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Ando_2019.pdf}
+    {\textbf{Overlooked Benefits of Nutrient Reductions in the Mississippi River Basin}} \\
+    with Amy W. Ando \\
+    \textit{Dissertation Chapter III}
+    \item[] Improvements in local surface water quality in the Mississippi River Basin (MRB) can contribute to the regional environmental goals of reducing hypoxia in the Gulf of Mexico. To inform estimates of the benefits of water quality policy, we use a choice experiment survey in a typical sub-watershed of the MRB to estimate willingness to pay for local environmental improvements and helping to reduce hypoxia far downstream. We find that residents place large values on reduced local algal blooms, improved local fish populations and diversity, and meeting local commitments to help with the regional environmental problem.
+    
+    \vfill
+
+\end{itemize}
+}
+\end{abstracts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

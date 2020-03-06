@@ -1,0 +1,435 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+%\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\newlength{\myMheight}
+\settoheight{\myMheight}{M}
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+%% Reference the last page in the page number
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+
+%% SHOW ONLY MONTH
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or %
+April\or May \or June\or July\or August\or September\or October\or November\or %
+December\fi, \number \year} 
+
+%%%%%%%%%%%%%%%%%%%%%%%% COLOR OF HYPERLINKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[svgnames,dvipsnames]{xcolor}
+%% DIGITAL COPY
+%\hypersetup{colorlinks,breaklinks,linkcolor=SteelBlue,urlcolor=SteelBlue,anchorcolor=SteelBlue,citecolor=SteelBlue}
+%% PRINT COPY
+\hypersetup{colorlinks,breaklinks,linkcolor=black,urlcolor=black,anchorcolor=black,citecolor=black}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhfoffset[L]{3cm} % left extra length
+%\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\emph{\large Professional Resume}}
+\lhead{\large \bfseries \href{www.bryanparthum.com}{Bryan Parthum}}
+\rfoot{\today \hspace*{1.25in} }
+\cfoot{\hspace*{-1.35in} Page \arabic{page} of \protect\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{1pt} % header line width
+\renewcommand{\headheight}{0.25in} % header line width
+\setlength{\headsep}{0.2in}
+
+
+%% ENVIRONMENT FOR ABSTRACTS 
+\newenvironment{abstracts}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\justifying
+
+%\makeheading[\emph{Curriculum Vitae}]{\href{www.bryanparthum.com}{Bryan Parthum}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contact}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.4in}%
+1.555.555.5555 \hfill $|$ \hfill \email{parthum2@illinois.edu} \hfill $|$ \hfill \href{www.bryanparthum.com}{www.bryanparthum.com}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+I am an applied microeconomist with an expertise in consumer demand and the human-environment relationship. I employ both structural and reduced-form modeling, coupled with high-frequency big data methods. I am a driven, self-motivated, and experienced researcher and entrepreneur with a demonstrated history of innovation and advancement. I am seeking employment in a fast-paced, dynamic work environment with colleagues who share a passion for progress and collaboration. I am a U.S. citizen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fields}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Applied Microeconomics \hfill $|$ \hfill Choice Modeling \hfill $|$ \hfill Big Data
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Ph.D., \href{http://ace.illinois.edu}{Applied Economics}} \hfill \emph{Expected:} May 2020
+        \begin{innerlist}
+        \item[] \href{https://illinois.edu/}{University of Illinois} at Urbana-Champaign, IL
+        \item[] \emph{Estimating Demand for Environmental Amenities, Now and Later}
+        \end{innerlist}
+
+\textbf{M.S., \href{http://www.mspe.illinois.edu/}{Policy Economics}} \hfill Dec 2015
+        \begin{innerlist}
+        \item[] \href{https://illinois.edu/}{University of Illinois} at Urbana-Champaign, IL
+        \item[] \emph{Demand for Local Foods Using P-score Matching within Panel Data}
+        \end{innerlist}
+        
+\textbf{B.S., \href{https://economics.colostate.edu/}{Economics}} \hfill May 2013
+   \begin{innerlist}
+        \item[] \href{https://www.colostate.edu/}{Colorado State University}, Fort Collins, CO
+        \item[] \emph{Co-integration of Industry for Employment and Revenue Projections}
+    \end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Research Economist}
+\begin{innerlist}
+\item[] \href{https://peter-christensen-pe55.squarespace.com/about}{Big Data in Environmental Economics and Policy} \hfill May 2017 - present
+\begin{innerlist}
+\item[] University of Illinois Urbana-Champaign, IL
+	\begin{innerlist}
+    	\item Bridge economics with computer science
+    	\item Leverage advances in continuous data acquisition, high- \\ performance computing, and machine learning
+    	\item Collaborate with and supervise 12 computer scientists to develop big data infrastructure
+	\end{innerlist}
+\end{innerlist}
+\end{innerlist}
+
+\textbf{Project Coordinator}
+\begin{innerlist}
+	\item[] \href{https://www.ourtask.org/}{The Global 2100 Project | Our Task, Inc.} \hfill Jul 2015 - Sep 2017 
+	\begin{innerlist}
+	\item[] Washington, DC
+		    \begin{innerlist}
+		    \item Provide professional guidance for 22 G2100 researchers and staff
+        	\item Develop qualitative and quantitative approaches to determine global economic projections and the impacts of climate changes, resource use, population increase, food security, and conflict
+        	\item Organize and lead large meetings in person and virtual settings
+        \end{innerlist}
+        
+    \end{innerlist}
+\end{innerlist}
+
+\textbf{Owner and Founder}
+\begin{innerlist}
+	\item[] \href{https://www.facebook.com/ParthumConstruction/}{Parthum Construction} \hfill Aug 2005 - Aug 2014
+	 \begin{innerlist}
+	 \item[] Laporte, CO
+	 
+	 	\begin{innerlist}
+		    \item Design and build custom homes and high-end residential remodels
+		    \item Manage large budgets (\$50k-\$1mil)
+        	\item Supervise 1-4 employees and 1-12 contractors simultaneously
+        	\item Coordinate with building departments, engineers, banks, suppliers, contractors, and customers to set and execute project schedules
+        \end{innerlist}
+        
+    \end{innerlist}
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Programming}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{innerlist}
+    \item Stata, R, Matlab, Python, ArcGIS, ArcPy
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Languages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{innerlist}
+	\item English (native), American Sign Language (fluent)
+\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Selected \\ Papers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-.35cm}  %% DEPENDING ON FONT SIZE, THIS WILL ALIGN THE SECTION WITH THE FIRST ITEM
+
+\begin{bibsection}
+    
+	\item 	\href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Christensen_2019a.pdf}
+    {\textit{The Recreation Response to Changes in Mountain Snowpack}} with Peter Christensen.
+    
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Ando_etal_2019.pdf}
+    {\textit{Willingness-to-Volunteer and Stability of Preferences between Cities: Estimating the Benefits of Stormwater Management}} 
+    with Amy W. Ando, Catalina Cadavid, and Noelwah R. Netusil.
+    
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Pindilli_Hogan_2017.pdf}
+    {\textit{Benefits of the Fire Mitigation Ecosystem Service in The Great Dismal Swamp National Wildlife Refuge, Virginia, USA}}
+    with Emily Pindilli and Dianna Hogan.
+    
+    \item \href{https://bryanparthum.s3.us-east-2.amazonaws.com/Parthum_Ando_2019.pdf}
+    {\textit{Overlooked Benefits of Nutrient Reductions in the Mississippi River Basin}} with Amy W. Ando.
+    
+	\item \textit{Code Red Tide and Economic Damages along the Gulf Coast} \\ with Klaus Moeltner and Roger von Haefen.
+	
+	\item \textit{Buying the Farm and the Distribution of Local and Cultural Benefits from Farmland Conservation} with Amy W. Ando.
+	
+\end{bibsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{0.25cm}
+
+\begin{minipage}{0.6\linewidth}
+\begin{innerlist}
+	\item[] \href{https://publish.illinois.edu/amyando/}{Amy W. Ando, Ph.D.}
+		    \begin{innerlist}
+               \item[]  Dissertation Advisor
+               \item[]  \email{amyando@illinois.edu}
+               \item[] 1.555.555.5555
+             \end{innerlist}
+
+    \halfblankline
+	\item[]  \href{https://aaec.vt.edu/people/faculty/moeltner-klaus.html}{Klaus Moeltner, Ph.D.}
+	    \begin{innerlist}
+               \item[]  Dissertation Member
+               \item[]  \email{moeltner@vt.edu}
+               \item[]  1.555.555.5555
+        \end{innerlist}
+
+\end{innerlist}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+
+\begin{innerlist}
+
+	\item[]   \href{https://www.peterchristensen.net}
+{Peter Christensen, Ph.D.}
+    \begin{innerlist}
+               \item[] Collaborator
+               \item[] \email{pchrist@illinois.edu}
+               \item[] 1.555.555.5555
+    \end{innerlist}
+
+    \halfblankline
+	\item[]   \href{https://ace.illinois.edu/directory/seanfox}
+{Sean Fox, Ph.D.}
+    \begin{innerlist}
+               \item[]  Department Head
+               \item[]  \email{seanfox@illinois.edu}
+               \item[]  1.555.555.5555
+    \end{innerlist}
+        
+\end{innerlist}
+
+\end{minipage}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[12pt]{article}
+
+\usepackage[top=1truein,bottom=1truein,left=1truein,right=1truein]{geometry}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1.01} %% CAN ADJUST THIS TO MAKE IT EXACTLY 2 PAGES
+
+\usepackage{fancyhdr,lastpage}
+
+\usepackage[page]{totalcount}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage~of \totalpages}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+
+\newcommand{\makeheading}[2][]{\noindent
+         \begin{minipage}[t]{\textwidth}%
+             {\large \bfseries #2 \hfill #1}\\
+             [-0.15\baselineskip]\rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhfoffset[L]{3cm} % left extra length
+%\fancyhfoffset[R]{1cm} % right extra length
+\rhead{\emph{\large Diversity Statement}}
+\lhead{\large \bfseries \href{www.bryanparthum.com}{Bryan Parthum}}
+\rfoot{\hfill \today }
+\cfoot{Page \arabic{page} of \protect\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{1pt} % header line width
+\setlength{\headheight}{18pt} % header line width
+\setlength{\headsep}{0.2in}
+
+%% SHOW ONLY MONTH
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or %
+April\or May \or June\or July\or August\or September\or October\or November\or %
+December\fi, \number \year} 
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+%----------------------------------------------------------------------------------------
+
+%\makeheading[\emph{Research Statement}]{\href{www.bryanparthum.com}{Bryan Parthum}}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+%\vspace{1em}
+\RaggedRight
+
+\noindent Diversity is not about any one individual. With this in mind, I would first like to comment more generally on the issues we as a community and a discipline continue to face, followed by a discussion about my personal commitment to diversity and equity. A commitment to diversity and equity is a commitment to community and inclusion, awareness and selflessness, and a commitment to acceptance and respect. It requires us to care a whole awful lot about these things, but more than that, it requires us to recognize that these commitments are always evolving and ever-changing (\href{https://www.emerald.com/insight/content/doi/10.1108/S2055-364120180000012012/full/html}{Hoffman and Toutant, 2018}). For example, thirty years ago there was little conversation about undocumented students on campus and how to accommodate or provide equal access to an education. Now, this is an important conversation for many campuses across the United States. We have seen a similar evolution and progression of gender bias and discrimination in promotion and tenure, LGBTQ community support and resources, raising awareness and discussion of mental health issues on campuses, and building networks for first-generation students or those from nontraditional backgrounds. 
+
+Diversity and equity are especially important in the realm of higher education where we aim to provide unrestricted access to a liberal education. Incorporating diversity is not simply incorporating tolerance. It is, instead, a strong pluralism in ideals, cultures, and backgrounds that co-exist and thrive in higher education. In economics, we have a long way to go to make this a reality. Reading through the results of the AEA Professional Climate Survey (\href{https://www.aeaweb.org/resources/member-docs/final-climate-survey-results-sept-2019}{link}) will highlight the breadth and depth of this sobering truth. What is particularly concerning, other than the fact that 1 in 5 respondents reported being discriminated against in the field of economics, were the open-ended responses. These are not worth repeating, but what is worth repeating is that while we have certainly come a long way, we still have a long way to go. Recently, Ph.D. Candidate Alice Wu (Harvard) provided undeniable evidence that overt sexism exists in economics (\href{https://www.aeaweb.org/articles?id=10.1257/pandp.20181101}{link}) and Dr. Lisa Cook shared a personal account of her experience in the profession noting that ``black women, compared to all other groups, had to take the most measures to avoid possible harassment, discrimination and unfair or disrespectful treatment" (\href{https://www.nytimes.com/2019/09/30/opinion/economics-black-women.html}{link}). This is unconscionable. We must do better. But how? 
+
+Simply making our professional community more welcoming and more aware of these issues is, although a good start, not enough. We must have meaningful discussion to immediately address the \textit{push} mechanisms restricting diversity and equity throughout our profession. Mentorship, particularly during the early stages of a career, can play an important roll in setting underrepresented academics up for success (\href{https://www.aeaweb.org/articles?id=10.1257/aer.90.4.765}{Athey et al., 2000}). Equally important and necessary are efforts aimed at improving the \textit{pull} mechanisms that prevent bright young scholars from pursuing advanced degrees in economics, STEM, or any field with a proven track record of toxic work environments and cultures. Improving the flow of underrepresented minds in economics starts in the classroom (\href{https://academic.oup.com/qje/article/125/3/1101/1903648?searchresult=1}{Carrell et al., 2010}). As educators, it is our responsibility to promote a positive climate for out students. We can do this by highlighting statements of support and encouragement in our syllabi, or incorporating discussions of implicit and explicit biases in class. Encouraging interactions between students can be helpful, but motivating participation from students who are typically quiet in the classroom has been shown to be particularly effective for women and URM students (\href{https://www.jstor.org/stable/10.5951/jresematheduc.45.4.0406#metadata_info_tab_contents}{Laursen et al., 2014}). These students often face social pressures that discourage participation or discussion. Providing a positive learning environment can even be as simple as recognizing that our students are real people, with real struggles, real backgrounds, and recognizing the fact that many have very little family or financial support along the way.
+
+Providing students with a place where they feel genuinely welcome generates externalities and confidence that extend far beyond the classroom and academia (\href{https://link.springer.com/article/10.1007/s11162-016-9423-1}{Roksa et al., 2017}). It is important to recognize that many undergraduate students are not interested in pursuing a graduate education. For these students, setting an example of collaboration with people who have a different background than they do, sets them up for success throughout their career. It encourages discussion with neighbors who they might not have previously spoken to, or teaming up with colleagues who they otherwise might not have worked with (\href{https://www.aeaweb.org/articles?id=10.1257/aer.20180044}{Rao, 2019}). The literature is conclusive, increasing diversity and equity in the workplace produces better ideas, more unique perspectives, increased productivity, and a whole list of other direct and indirect benefits. 
+
+My contribution and pledge to improve diversity and equity in higher education starts with recognizing my own privilege. While there are many difficulties that I had to face during my journey to and through higher education, there are also many advantages that I, through no effort of my own, was granted. I am a first generation college student, I was employed full-time through high school and college, and I completed the first half of my undergraduate degree at a community college. After eleven years of working two jobs and taking one or two night class per semester, I completed my undergraduate degree. Surely this was a much more colorful path than many of my colleagues experienced, whose parents were doctors, who only had homework to worry about at night, who never knew what a FAFSA was or why it was so important. But it would be na\"ive to ignore the fact that I was less likely to get pulled over on my way to work, more likely to get out of a ticket if I did, I was more likely to have a customer hire me to work on their house, and more likely to be referred by that same customer simply because of how and where I was born. These privileges, race, gender, and nationality, are something that many students and colleagues do not have. For them, their path was no less (and in many cases much more) colorful than what I experienced.
+
+During my Ph.D., I was fortunate to work in a wonderful department with a diverse group of faculty and graduate students. The environment in the department was welcoming. It was my first time being fully immersed in an academic setting and I was thrilled. In my first year I became a graduate student senator and was elected to positions on the Senate Executive Committee, the Committee on Campus Operations, the Student Sustainability Committee, and the Graduate Student Organization. Each of these experiences reinforced my appreciation for academia and the importance of having a strong and diverse community participating in shared governance and discourse. Over the next several years I quickly became aware that many departments and campuses are much less welcoming to these ideals. Listening to, and learning from, representatives and groups who are doing important work to improve the conditions in our discipline (e.g. \href{https://www.aaea.org/membership/sections/cwae}{CWAE}, \href{https://www.neaecon.org/}{NAE}), and in higher education more generally, has been inspirational. Strengthening diversity and equity in higher education increases the scope of our research questions (\href{https://advances.sciencemag.org/content/5/10/eaaw7238}{Hoppe et al., 2019}), the value of our work  (\href{https://www.aeaweb.org/articles?id=10.1257/aer.p20161032}{Kim and Starks, 2016}), and even the way in which we treat others (\href{https://www.aeaweb.org/articles?id=10.1257/aer.20180044}{Rao, 2019}).
+
+\end{document}
+
+

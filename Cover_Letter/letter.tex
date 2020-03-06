@@ -1,0 +1,153 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\documentclass[12pt,sigleft,stdletternofrom]{newlfm} % Extra options: 'sigleft' for a left-aligned signature, 'stdletternofrom' to remove the from address, 'letterpaper' for US letter paper - consult the newlfm class manual for more options
+
+%% to change margins-----------------------
+%\leftmarginsize{1in}
+%\rightmarginsize{2in}
+%\topmarginsize{1in}
+%\topmarginskip{0in}
+%\headermarginsize{0in}
+\headermarginskip{-0.5in}
+%\footermarginsize{2in}
+%\footnermarginskip{2in}
+
+%%-----------------------------------------
+\usepackage{hyperref} 
+\usepackage{charter} % Use the Charter font for the document text
+
+\newsavebox{\Luiuc}\sbox{\Luiuc}{\parbox[b]{1.75in}{\vspace{0.5in}
+\includegraphics[width=6.5in]{Cover_Letter/images/ACE_Letterhead.png}}} 
+
+\newsavebox{\Ltlfoot}\sbox{\Ltlfoot}{\parbox[b]{1.75in}{\includegraphics[width=3in]{Cover_Letter/images/ACE_Letterfoot.png}\vspace{0.25in}}}
+
+\makeletterhead{Uiuc}{ %
+    \Lheader{\usebox{\Luiuc}}
+    \Lfooter{\usebox{\Ltlfoot}}
+}
+
+\newlfmP{sigsize=12pt} % Slightly decrease the height of the signature field
+%\newlfmP{addrfromname} % Print a name under the sender's address
+\newlfmP{addrfromphone} % Print a phone number under the sender's address
+\newlfmP{addrfromemail} % Print an email address under the sender's address
+
+\PhrPhone{Name} % Customize the "Name" text
+\PhrPhone{Phone} % Customize the "Telephone" text
+\PhrEmail{Email} % Customize the "E-mail" text
+
+\lthUiuc % Print the company/institution logo
+
+\makeatletter
+\let\ps@othhead\ps@empty
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\namefrom{\vspace{-1.5cm} \hspace{0.25cm} \includegraphics[width=1in]{Cover_Letter/images/signature.png} \\ 
+Bryan Parthum \\ 
+1.555.555.5555 $|$ \href{mailto:parthum2@illinois.edu}{parthum2@illinois.edu}
+$|$ \href{https://www.bryanparthum.com}{www.bryanparthum.com}}
+\addrfrom{Date: \ \ \today \\
+          From: \ Bryan Parthum}
+\phonefrom{1.555.555.5555} % Phone number
+\emailfrom{parthum2@illinois.edu} % Email address
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING/CLOSING
+%----------------------------------------------------------------------------------------
+
+\greetto{\vspace{-2.5cm} 
+Western Colorado University \\
+Department of Economics \\
+% JOE ID Number: 2019-02\_111464672 \\ 
+% Vacancy Number: 16F-281 \\
+% Announcement Number: BR-DO-2020-036 \\
+% Control Number: JPF02319 \\
+\bigskip
+Dear members of the search committee,} %
+                
+\closeline{Sincerely,} % Closing text
+
+%----------------------------------------------------------------------------------------
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{newlfm}
+\RaggedRight
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAIN TEXT 
+
+I am writing in response to the search for an Assistant Professor in Business Administration. I will complete my Ph.D. in Agricultural and Applied Economics from the University of Illinois in May 2020. I am confident that my training, research interests, and experience make me an excellent match for this position.
+
+My research is seated in environmental and natural resource economics where I advance areas such as nonmarket valuation, hedonic price analysis, and the benefit-cost analysis of government programs. I place a particular emphasis on policy-relevant research questions that will help inform, and evaluate, policy decisions in the face of a changing climate. I incorporate big data methods and computer science tools throughout my research and I believe this is an area where applied economists can benefit by embracing the synergies between the two disciplines. 
+
+I have two papers related to surface water quality in the Mississippi River Basin. One is forthcoming in \textit{JEEM} and the other is R\&R in \textit{Land Economics}. These papers address market externalities related to agricultural and urban contributions to nutrient loadings in surface waters. I estimate benefits from reducing these loadings in local rivers and hypoxic conditions far downstream in the Gulf of Mexico. I have two other papers estimating the recreation value of snowpack across the US. These papers are part of a new research agenda that examines human-environment relationships using high-frequency market responses to fluctuations in physical systems. I estimate the behavioral response to observed changes in snowpack and incorporate climate predictions to estimate demand for snow sports under future climate scenarios. I feel my research interests and strengths will be a strong compliment to an already strong community at 
+Western Colorado,  %%%%%%%%%%%%%%%%%%% 
+setting the stage for collaborations with the other faculty within the department. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACADEMIC 
+I have an extensive record of teaching success and experience, positioning me to serve both undergraduate and graduate students. I was recently recognized for my teaching and mentorship with the receipt of my college's Louis V. Logeman Teaching Award. My capacity to teach classes in both economics and data science will prepare students for positions in industry, academia, and undergraduate placements into top graduate programs. I have project management and supervisory experience and a demonstrated history of interdisciplinary collaborations in research and policy analysis. 
+
+Lastly, coming from a nontraditional background and transitioning into academia, I bring with me a strong desire to encourage all students to ask nontraditional questions and consider nontraditional approaches. This means, to me, that our responsibility as mentors is to remind our students there is no one \textit{right} way to do research, ask questions, or find answers. Instead, the path each individual takes is unique and, as mentors, we will support their journey in a way that works for them. I have included a more complete discussion of my commitment to diversity and inclusion in my attached Diversity Statement.
+
+Enclosed is my curriculum vitae, job market paper, teaching statement, research statement, and diversity statement. Other working papers and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference will be sent by Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), and Prof. Peter Christensen (UIUC). Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% LIBERAL ARTS ACADEMIC 
+% I have an extensive record of teaching success and experience. This stems from a passion for teaching undergraduate students and challenging them to think independently to solve problems in ways they had not previously been aware of. My capacity to teach classes in both economics and data science will prepare students for positions in industry and undergraduate placements into top graduate programs. I am particularly interested in
+% Drew University %%%%%%%%%%%%%%%%%%%
+% to focus on building strong undergraduate candidates through rigorous (but exciting) coursework, while supervising the development of undergraduate theses that will help to position our graduates ahead of the field. This means encouraging our students to embrace the computer sciences into their theses (when applicable) and supporting their decision to ask questions that are tangential to those in mainstream economics. 
+% \newpage
+% I am also excited about the opportunity to join
+% Drew University  %%%%%%%%%%%%%%%%%%%
+% in order to teach courses in environmental economics and econometrics. In addition to building a solid foundation of the underlying theory, I will incorporate hands-on experience and instruction with software such as Stata and R to provide students with an understanding of real-world applications and approaches. A few examples of other courses I would like to teach at 
+% Drew University  %%%%%%%%%%%%%%%%%%%
+% include Big Data Applications, Nonmarket Valuation, Advanced Microeconomics (an optional course that extends the curriculum of Intermediate Micro), and Structural Econometrics.
+
+% Coming from a nontraditional background and transitioning into academia, I bring with me a strong desire to encourage all students to ask nontraditional questions and consider nontraditional approaches. This means, to me, that our responsibility as mentors is to remind our students there is no one \textit{right} way to do research, ask questions, or find answers. Instead, the path each individual takes is unique and, as mentors, we will support their journey in a way that works for them. I have included a more complete discussion of my commitment to diversity and inclusion in my attached Diversity Statement.
+
+% In addition to research and teaching roles, I have project management and supervisory experience and a demonstrated history of interdisciplinary collaborations in research and policy analysis. I have included in my attached Research Statement a more thorough discussion of my experience in these dimensions. 
+
+% Enclosed is my curriculum vitae, job market paper, teaching statement, research statement, and diversity statement. Other working papers and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference will be sent by Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), and Prof. Peter Christensen (UIUC). Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% POSTDOC 
+% My research is seated in environmental and natural resource economics where I advance areas such as nonmarket valuation, hedonic price analysis, and the benefit-cost analysis of government programs. I incorporate big data methods and computer science tools throughout my research and I believe this is an area where applied economists can benefit by embracing the synergies between the two disciplines. I have two papers related to surface water quality in the Mississippi River Basin. One is forthcoming in \textit{JEEM} and the other is R\&R in \textit{Land Economics}. These papers address market externalities related to agricultural and urban contributions to nutrient loadings in surface waters. I estimate benefits from reducing these loadings in local rivers and hypoxic conditions far downstream in the Gulf of Mexico. 
+% % My time as a Ciriacy-Wantrup research fellow will build on this work estimating the nonmarket benefits of surface water quality and evaluating welfare under alternative policy scenarios.
+
+% I have two other papers estimating the recreation value of snowpack across the US. These papers are part of a new research agenda that examines human-environment relationships using high-frequency market responses to fluctuations in physical systems. I estimate the behavioral response to observed changes in snowpack and incorporate climate predictions to estimate demand for snow sports under future climate scenarios.
+
+% % I am particularly interested in this position and opportunity to work with you on issues related to water quality across the US. I also have project management and supervisory experience, and a demonstrated history of interdisciplinary collaborations in research and policy analysis.
+
+% Enclosed is my curriculum vitae and job market paper. Other working papers and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference have been sent from Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), and Prof. Peter Christensen (UIUC). Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% FEDERAL
+% I currently hold a Pathways position with the Science and Decisions Center (USGS) in Reston, Virginia. My supervisor is Dr. Emily Pindilli (1.555.555.5555). The position is at the GS-0199-09 level, in the years following that designation I have acquired the necessary experience (and degrees) to be placed at the GS-12/13 level. Upon conferral of my degree, the appointment converts to a noncompetitive path. I also have extensive project management and supervisory experience, and a demonstrated history of interdisciplinary collaborations in research and policy analysis.
+
+% I have enclosed my government resume, academic vitae, SF-50, and transcripts. Papers and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Letters of reference can be made available from Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), Prof. Peter Christensen (UIUC), and my current USGS supervisor Dr. Emily Pindilli. Their contact information can be found on my academic CV. Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% INDUSTRY
+% My research is seated in environmental and resource economics with a focus on causal inference and big data analytical approaches. I have several papers estimating the recreation value of snowpack across the US. These papers are part of a new research agenda that I have developed to examine human-environment relationships using high-frequency market responses to fluctuations in physical systems. I estimate the behavioral response of consumers to observed changes in mountain snowpack and incorporate climate predictions to estimate demand for snow sports under two future climate scenarios (RCP4.5 and RCP8.5). I also have several papers that elicit consumer preferences through hypothetical markets using a choice experiment framework. I am trained in both reduced-form estimation and structural modeling to identify causal relationships in data that are generated from observed (quasi-experimental) and stated (experimental) approaches. 
+
+% I have extensive project management and supervisory experience, and a demonstrated history of interdisciplinary collaborations in research and policy analysis. I would like to put my acquired skill-set to use by joining a high-energy work environment that requires top quality work with high-impact results. I plan to target my findings towards policy discussions as I feel that my research interests and strengths (environmental and climate economics) are needed now more than ever.
+
+% Enclosed you will find my curriculum vitae, job market paper, and transcripts. Publications, working papers, and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference can be requested from Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), and Prof. Peter Christensen (UIUC). Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+%I grew up skiing the mountains of Colorado where I plan to return to strengthen the industry by bringing new insights and methods to ensure these experiences and access is made available for generations to come.
+
+% Enclosed is a copy of my academic vitae and two examples of my current research. Additional publications, papers, and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference can be sent by Dr. Amy Ando, Dr. Klaus Moeltner, and Dr. Peter Christensen (see vitae for contact info). Please let me know if I may provide any additional information. Thank you and I look forward to interviewing with you.
+
+% I have extensive project management and supervisory experience, and a demonstrated history of interdisciplinary collaborations in research and policy analysis. I would like to put my acquired skill-set to use by joining a work environment that requires top quality work with high-impact results. I plan to target my findings towards policy discussions as I feel that my research interests and strengths (environmental and climate economics) are needed now more than ever. 
+
+% Enclosed you will find my curriculum vitae, a link to my job market paper, and the requested dissertation abstracts. Publications, working papers, and research summaries can be found on \href{https://www.bryanparthum.com}{\textcolor{MidnightBlue}{my website}}. Three letters of reference will be sent by Prof. Amy Ando (UIUC), Prof. Klaus Moeltner (VT), and Prof. Peter Christensen (UIUC). Please let me know if I may provide any additional information. Thank you in advance for your consideration. I look forward to interviewing with you.
+
+\end{newlfm}
+\end{document}
