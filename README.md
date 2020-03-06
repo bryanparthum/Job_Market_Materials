@@ -1,8 +1,15 @@
 # Job Market Materials
 
+> Click on the "fork" button at the very top right of the page to create an independent copy of the repo within your own GitHub account. Alternatively, click on the green "clone or download" button just below that to download the repo to your local computer.
+
+## Overview
+
 This repo contains some templates for creating your vitae (academic and professional), research, teaching, and diversity statements, and your cover letter. Plan ahead, stay calm, you are doing everything right. Congratulations for making this far in your career and I am excited for the things you are going to go on to do. Believe in yourself!
 
-I chose to have an Overleaf project for each of these. That way when I downloaded (or pushed to Git, if you are hosting everything there), the project name would already be the necessary final file name. For example, I had a project titled *Parthum_Vitae* that would produce `Parthum_Vitae.pdf` making the use of this file direct and simple to upload to applications. Find what works best for you (but also, don't be the person that uploads a file like `My_cv_v4 (1).pdf`, just don't do it).
+## Workflow
+
+I chose to have an Overleaf project for each of these. That way, when I downloaded (or pushed to GitHub if you are hosting everything there), the project name would already be the necessary final file name. For example, I had a project titled *Parthum_Vitae* that would produce `Parthum_Vitae.pdf` making the use of this file direct and simple to upload to applications. Find what works best for you (but also, don't be the person that uploads a file like `My_cv_v4 (1).pdf`, just don't do it).
+
 ## Vitae
 
 In this folder you will find templates for both an academic vitae (`academic.tex`) and professional/industry resume (`industry.tex`).I have left some of my information and entries in there to get you started. In general, if you have a lot of accomplishments, awesome! But if you don't don't water down the few good things by adding the little things to just make your CV longer. Only include things that are *important*. Committees are reading 400+ CV's and you want them to know what is *important*, not everything. 
