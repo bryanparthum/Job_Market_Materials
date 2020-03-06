@@ -10,15 +10,15 @@ Plan ahead, stay calm, you are doing everything right. Congratulations for makin
 
 ## Workflow
 
-I chose to have an Overleaf project for each of these. That way, when I downloaded (or pushed to GitHub if you are hosting everything there), the project name would already be the necessary final file name. For example, I had a project titled *Parthum_Vitae* that would produce `Parthum_Vitae.pdf` making the use of this file direct and simple to upload to applications. Find what works best for you (but also, don't be the person that uploads a file like `My_cv_v4 (1).pdf`, just don't do it).
+I chose to have an Overleaf project for each of these. That way, when I downloaded (or pushed to GitHub if you are hosting everything there), the project name would already be the necessary final file name. For example, I had a project titled *Parthum_Vitae* that would produce `Parthum_Vitae.pdf`, making the use of this file direct and simple to upload to applications. Find what works best for you (but also, don't be the person that uploads a file like `My_cv_v4 (1).pdf`, just don't do it).
 
 ## Vitae
 
-In this folder you will find templates for both an academic vitae (`academic.tex`) and professional/industry resume (`industry.tex`).I have left some of my information and entries in there to get you started. In general, if you have a lot of accomplishments, awesome! But if you don't water down the few good things by adding the little things to just make your CV longer. Only include things that are *important*. Committees are reading 400+ CV's and you want them to know what is *important*, not everything. 
+In this folder you will find templates for both an academic vitae (`academic.tex`) and professional/industry resume (`industry.tex`).I have left some of my information and entries in there to get you started. In general, if you have a lot of accomplishments, awesome! But if you don't, don't water down the few good things by adding the many little things just to make your CV longer. Only include things that are *important*. Committees are reading 400+ CV's and you want them to know what is *important*, not everything. 
 
 Academic CV's can be as long as they need—although for the market you will typically try to keep it to 4 pages (two pieces of paper) so committees can manage all of these things. Remember, your goal is to make the committee want to interview you, not to show them how many pieces of paper you can make them print (unless that's the job you're applying for, then go nuts).
 
-Professional resumes are *typically* 2 pages (one piece of paper). Many people will tell you to keep it to one page, and that's fine, too. The general motivation behind keeping it to 2 pages is that a hiring manager might not even look beyond the first page. But IMO, that's their fault for not being more interested in doing their job well.
+Professional resumes are *typically* 2 pages (one piece of paper). Many people will tell you to keep it to one page, and that's fine, too. The general motivation behind keeping it to 1 page (one side of one piece of paper) is that a hiring manager might not even look beyond the first page. But IMO, that's their fault for not being more interested in doing their job well.
 
 Again, find what works for you. 
 
