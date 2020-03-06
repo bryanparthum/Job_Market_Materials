@@ -16,15 +16,15 @@ I chose to have an Overleaf project for each of these. That way, when I download
 
 In this folder you will find templates for both an academic vitae (`academic.tex`) and professional/industry resume (`industry.tex`).I have left some of my information and entries in there to get you started. In general, if you have a lot of accomplishments, awesome! But if you don't, don't water down the few good things by adding the many little things just to make your CV longer. Only include things that are *important*. Committees are reading 400+ CV's and you want them to know what is *important*, not everything. 
 
-Academic CV's can be as long as they need—although for the market you will typically try to keep it to 4 pages (two pieces of paper) so committees can manage all of these things. Remember, your goal is to make the committee want to interview you, not to show them how many pieces of paper you can make them print (unless that's the job you're applying for, then go nuts).
+Academic CV's can be as long as they need—although for the market you will typically try to keep it to four pages (two pieces of paper) so committees can manage all of these things. Remember, your goal is to make the committee want to interview you, not to show them how many pieces of paper you can make them print (unless that's the job you're applying for, then go nuts).
 
-Professional resumes are *typically* 2 pages (one piece of paper). Many people will tell you to keep it to one page, and that's fine, too. The general motivation behind keeping it to 1 page (one side of one piece of paper) is that a hiring manager might not even look beyond the first page. But IMO, that's their fault for not being more interested in doing their job well.
+Professional resumes are *typically* two pages (one piece of paper). Many people will tell you to keep it to one page, and that's fine, too. The general motivation behind keeping it to one page (one side of one piece of paper) is that a hiring manager might not even look beyond the first page. But IMO, that's their fault for not being more interested in doing their job well.
 
 Again, find what works for you. 
 
 ## Statements
 
-In this folder you will find three templates. They all use the same formatting, but I have included all three to share the items and information that I chose to include in each. The text should be personal to *you*. You will probably rewrite these a dozen times until you are happy with how they read. You will find a research statement (`Research_Statement.tex`), teaching statement (`Teaching_Statement.tex`), and a diversity statement (`Diversity_Statement.tex`). 
+In this folder you will find three templates. They all use the same formatting, but I have included all three to share the items and information that I chose to include in each. The text should be personal to *you*. You will probably rewrite these a dozen times until you are happy with how they read. The folder contains the temlpate for a research statement (`Research_Statement.tex`), teaching statement (`Teaching_Statement.tex`), and a diversity statement (`Diversity_Statement.tex`). 
 
 Many institutions only request the first two. Some institutions only provide a spot for one general statement. In the case of the latter, I would group all three statements together and submit one statement file that included all three. Do what you think is appropriate and what works best for you.
 
